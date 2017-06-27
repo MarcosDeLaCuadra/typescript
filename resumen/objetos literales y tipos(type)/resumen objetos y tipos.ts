@@ -1,4 +1,4 @@
-OBJETOS BASICOS
+//OBJETOS BASICOS
 
 let flash ={
 
@@ -8,18 +8,18 @@ poderes:["correr","laser"]
 
 };
 
-TIPO OBJETOS
+//TIPO OBJETOS
 
-let flash:{nombre:string,edad:number,poderes:string[]} ={
+let fllash:{nombre:string,edad:number,poderes:string[]} ={
     nombre:"algo",
     edad:10,
     poderes:["algo","algo"]
 }
 
-METODOS DENTRO DE OBJETOS
+//METODOS DENTRO DE OBJETOS
 
 let superman:{nombre:string,edad:number,poderes:string[],getNombre:()=>string} = {
-    nombre:"algo";
+    nombre:"algo",
     edad:10,
     poderes:["algo","algo"],
     getNombre(){
@@ -27,9 +27,9 @@ let superman:{nombre:string,edad:number,poderes:string[],getNombre:()=>string} =
     }
 };
 
-TIPOS PERSONALIZADOS
+//TIPOS PERSONALIZADOS
 
-tpye Heroe ={
+type Heroe ={
 
     nombre:string,
     edad:number,
@@ -37,7 +37,7 @@ tpye Heroe ={
     getNombre:()=>string
 };
 
-let flash:Heroe ={
+let flashh:Heroe ={
     nombre:"algo",
     edad:24,
     poderes:["algo","algo"],
@@ -46,7 +46,7 @@ let flash:Heroe ={
     }
 };
 
-MULTIPLES TIPOS PERMITIDOS
+//MULTIPLES TIPOS PERMITIDOS
 
 type Heroe2={
     nombre:string,

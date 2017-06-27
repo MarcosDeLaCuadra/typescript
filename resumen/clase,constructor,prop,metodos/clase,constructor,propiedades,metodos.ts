@@ -1,4 +1,4 @@
-CLASES
+//CLASES
 
 class Avenger{
 
@@ -11,14 +11,14 @@ class Avenger{
 let antman:Avenger = new Avenger();
 
 
-CONSTRUCTOR
+//CONSTRUCTOR
 
 class Avenger{
 
-    nombre:string,
-    equipo:string,
+    nombre:string;
+    equipo:string;
    
-    constructor(nombre:strig,equipo:string){
+    constructor(nombre:string,equipo:string){
         this.nombre = nombre;
         this.equipo = equipo;
     }
@@ -27,14 +27,14 @@ class Avenger{
 
 let obj:Avenger = new Avenger ("algo","algo");
 
-PROPIEDADES
+//PROPIEDADES
 
 
 class Avenger{
 
-   public nombre:string,
-   private  equipo:string,
-   protected otra:string
+   public nombre:string;
+   private  equipo:string;
+   protected otra:string;
    
     constructor(nombre:strig,equipo:string,otra:string){
         this.nombre = nombre;
@@ -49,15 +49,15 @@ obj.equipo = "asad";no
 obj.otra = "asad";no
 
 
-METODOS
-tmb pueden ser publicos,privados o protegidos
+//METODOS
+//tmb pueden ser publicos,privados o protegidos
 
 class Avenger{
 
-    nombre:string,
-    equipo:string,
+    nombre:string;
+    equipo:string;
    
-    constructor(nombre:strig,equipo:string){
+    constructor(nombre:string,equipo:string){
         this.nombre = nombre;
         this.equipo = equipo;
     }

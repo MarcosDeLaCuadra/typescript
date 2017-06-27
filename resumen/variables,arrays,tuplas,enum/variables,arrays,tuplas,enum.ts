@@ -1,27 +1,27 @@
-VARIABLES
+//VARIABLES
 
-let ambito local donde se define
-var ambito global
+//let ambito local donde se define
+//var ambito global
 
 let esSuperman:boolean = true; //booleanos
 let algo:number = 5;//numbers soporta flotantes etc
 let batman:string = "algo"; //podria ser 'algo' o algo con comillas dobladas
 
-let var:any = "algo";
-any = 5; // permite cualquier tipo
+let mivar:any = "algo";
+mivar = 5; // permite cualquier tipo
 
-ARRAYS
+//ARRAYS
 
-let villanos:string[]=["algo","algo,"algo"];
+let villanos:string[]=["algo","algo","algo"];
 
-TUPLAS
+//TUPLAS
 
 let heroe:[string,number] = ["algo",9];
 
-ENUMERACIONES
+//ENUMERACIONES
 
 enum Especialidades{
-    pediatra,
+    pediatra, // puedo poner = a algo empiezan por 0
     cardiologo,
     clinico,
 }

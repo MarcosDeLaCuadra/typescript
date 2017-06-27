@@ -2,8 +2,8 @@
 
 interface Xmen{
 
-    nombre:string,
-    poder:string, // podria tener opcionales ej poder?:string
+    nombre:string;
+    poder:string; // podria tener opcionales ej poder?:string
     regenerar(apellido:string):void;
 }
 
@@ -24,8 +24,8 @@ enviarMision(xmen);
 //INTERFACES EN LAS CLASES
 
 interface Xmenn{
-    nombre:string,
-    poder?:string,
+    nombre:string;
+    poder?:string;
     regenerar(nombreReal:string):void;
 }
 
@@ -42,7 +42,7 @@ objMutante.regenerar("asd");
 // INTERFACES A LAS FUNCIONES 
 
 interface DosNumerosFunc{
-    (num1:number,num2:number):number
+    (num1:number,num2:number):number;
 }
 let sumar:DosNumerosFunc;
 

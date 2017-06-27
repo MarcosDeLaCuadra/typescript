@@ -1,19 +1,19 @@
-FUNCIONES
+//FUNCIONES
 
-funcion imprimir():string{
+function imprimir():string{
     return "algo";
 }
-function imprimir():void{
+function imprimir2():void{
     console.log("algo");
 }
 
-PARAMETROS OBLIGATORIOS
+//PARAMETROS OBLIGATORIOS
 
 function nombreCompleto(nombre:string,apellido:string):string{
     return nombre+' '+apellido;
 }
 
-PARAMETROS OPCIONALES
+//PARAMETROS OPCIONALES
 
 fcuntion nombreCompleto(nombre:string,apellido?:string):string{
     if(apellido)
@@ -22,7 +22,7 @@ fcuntion nombreCompleto(nombre:string,apellido?:string):string{
     return nombre;
 }
 
-PARAMETROS POR DEFECTO
+//PARAMETROS POR DEFECTO
 // si no ingresa nada toma el valor que tiene por defecto , si ingresa toma el que ingresa
 function nombreCompleto(nombre:string,apellido:string,capitalizado:boolean = false):string{
     var cadena:string;
@@ -33,17 +33,38 @@ function nombreCompleto(nombre:string,apellido:string,capitalizado:boolean = fal
     return cadena; 
 }
 
-PARAMETROS REST
+//PARAMETROS REST
 
-function nombreCompleto (nombre:string, ...losDemasParametros:string[]):string{
+function nombreCompleto (nombre:string, ...losDemasParametros:string[]):string{ // no hace falta poner el 1 parametro si quiero
     return nombre+" "+losDemasParametros.join(" ");
 }
 
 let superman : string = nombreCompleto("algo","algo","algo","algo");
 
-TIPO FUNCION
+//TIPO FUNCION
 
 funcion sumar(a:number,b:number):number{
     return a+b;
 }
 let miFuncion: (x:number,y:number)=>number;
+
+//let resultado:number = miFuncion(2,3);
+
+
+/*
+//TIPO FUNCION
+
+function sum(a: number, b: number): number{
+    return a + b;
+}
+ 
+let varSum: (a: number, b: number)=> number=
+function(a: number, b: number): number
+{
+    return a + b;
+}
+ 
+console.log(sum(1, 5));
+console.log(varSum(1, 5));
+
+*/

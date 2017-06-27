@@ -7,7 +7,7 @@ class Avenger{
 }
 
 class Xmen extends Avenger{
-    private let atr:string;
+    private atr:string;
 
     constructor(a:string,b:string,atr:string){
         super(a,b)
@@ -62,7 +62,7 @@ let obj:Xmen = Xmen.crearXmen();
 Las clases abstractas son clases de base desde la que se pueden derivar otras clases.
  Ellos no pueden ser instanciadas directamente. A diferencia de una interfaz, 
  una clase abstracta puede contener detalles de implementación para sus miembros.
-  La abstractpalabra clave se utiliza para definir las clases abstractas, 
+  La abstract palabra clave se utiliza para definir las clases abstractas, 
   así como los métodos abstractos dentro de una clase abstracta.
   Métodos dentro de una clase abstracta que están marcados como abstracta no contienen una implementación y
    deben ser implementadas en las clases derivadas.
