@@ -1,0 +1,80 @@
+map: se utiliza cuando necesitamos modificar cada elemento del array de la misma manera
+por ej elevar al cuadrado cada elemento de un array se ejecuta el callback(funcion) de parametro
+no importa que es lo que retorne.
+var mascotas =[
+    {
+        'nombre':'boby',
+        'edad':3
+    },
+    {
+        'nombre':'pancho',
+        'edad':1
+    }
+];
+var nombresMascotas = mascotas.map(function(mascota,indice,array){
+        return mascota.nombre; // o ej return masocta.edad * 2;
+});
+
+var numbers = [1, 5, 10, 15];
+var doubles = numbers.map(function(x) {
+   return x * 2;
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+filter:toma un array y filtra los elementos no deseados. debe retornar true o false 
+el nuevo array contiene los elementos que solo retornaron true y los false se descartan
+
+var MascotasMayoresA1 = mascotas.filter(function(mascota){
+    return mascota.edad >1;
+});
+
+var nueros = [10,2,3,9,5,6,8];
+var numeros_pares = numeros.filter(function(numero){
+    return numero % 2 === 0;
+});
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+reduce:toma todos los valores de un array y los reduce a uno solo 
+supongamos que quiero obtener la suma de edades de las mascotas
+
+var sumaEdades = mascotas.reduce(function(anterior,actual){
+    return anterior + actual.edad;
+});
+
+o la mayor de las edades
+
+var mayorEdad = mascotas.reduce(function(anterior,actual){
+    if(anterior > actual.edad)
+        return anterior;
+    else
+        return actua.edad;
+},0);
+
+
+[0,1,2,3,4].reduce(function(valorAnterior, valorActual, indice, vector){
+  return valorAnterior + valorActual;
+});
+
+// Primera llamada
+valorAnterior = 0, valorActual = 1, indice = 1
+
+// Segunda llamada
+valorAnterior = 1, valorActual = 2, indice = 2
+
+// Tercera llamada
+valorAnterior = 3, valorActual = 3, indice = 3
+
+// Cuarta llamada
+valorAnterior = 6, valorActual = 4, indice = 4
+
+// el array sobre el que se llama a reduce siempre es el objeto [0,1,2,3,4] 
+
+// Valor Devuelto: 10
+
+
+
+aclaracion : 
+filter y map tienen en el callback = parametros 
+si un elemento es null o undefined se descarta
+el callback no necesariamente tiene q estar adentro se puede definir una funcion x separado y llamarla en el parametro
+sin ()

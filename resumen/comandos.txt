@@ -1,0 +1,6 @@
+
+npm install -g typescript (instalar compilador)
+tsc -v (ver version)
+tsc archivo.ts (para compilar)
+tsc archivo.ts --watch 
+tsc --init(genera tscongif.json)

@@ -1,0 +1,314 @@
+=========MAP REDUCE FILTER==========
+var mascotas =[
+
+{
+'nombre':'boby',
+'edad':3
+},
+
+{
+'nombre':'nico',
+'edad':5
+}
+
+];
+
+ej MAP : puede retornar cualquier cosa y lo guarda en el array
+var nombres_Mascotas = mascotas.map(function(mascota,indice,array){
+return mascota.nombre;
+});
+ej FILTER: si es true el return lo guarda en el array
+var MascotasMayoresA1 = mascotas.filter(function(mascota){
+return mascota.edad > 1;
+});
+ej REDUCE:
+var sumaEdades = mascotas.reduce(function(anterior,actual){
+return anterior + actual.edad;
+)};
+=========TYPESCRIPT=================
+caracteristicas
+var alcance global
+let alcance al bloque donde se ha declarado
+crear tipos nuevos
+tipos genericos
+tipos funcion
+por defecto todas las propiedades en una clase son publicas
+class es class y no Class 
+se pueden aplicar interfaces a las funciones 
+----
+variables
+
+let esSuperman:boolean =true;
+let avengers:number = 5;
+let batman:string = "batman";
+-----
+any puede guardar cualquier tipo de var 
+ej
+let vengador:any="dr.strange";
+vengador = 150;
+----
+arrays 
+
+let vector:numer[] = [1,2,3,4,5];
+----
+tuplas
+
+let heroe:[string,number] = ["algo",100];
+----
+enumeraciones
+
+enum Especialidades{
+pediatra,
+cardiologo,
+clinico,
+}
+----
+funciones parametros obligatorios
+
+let heroe:string="flash";
+function imprime_heroe(nombre:string,apellido:string):string{
+return nombre+' '+apellido;
+}
+----
+funciones parametros opcionales
+
+function nombreCompleto(nombre:string,apellido?:string):string{
+if(apellido)
+return nombre+' '+apellido;
+else
+return nombre;
+}
+----
+parametros por defecto
+
+function nombreCompleto(nombre:string,apellido:string,capitalizado:boolean = false):string{
+var cadena:string;
+if (capitalizado){
+cadena = capitalizar(nombre)+ ' ' +capitalizar(apellido);
+}else{
+cadena = nombre+' '+apellido;
+}
+return cadena;
+}
+----
+parametros REST
+
+function nombreCompleto (nombre:string, ...losDemasParametros:string[]):string{
+ return nombre+""+losDemasParametros.join("");
+}
+let superman:string = nombreCompleto("carlos","matias","lucas","jose");
+----
+tipo funcion
+
+function sumar(a:number,b:number):number{
+return a+b;
+}
+let miFuncion:(x:number,y:number)=>number;
+============OBJETOS=======================
+objetos
+
+let flash = {
+nombre:"barry allen",
+edad:24,
+poderes:["vuela","superfuerza","mirada laser"]
+};
+
+----
+tipo objeto ( instancias)
+
+let flash:{nombre:string,edad:number,poderes:string[]} = {
+nombre:"pepe",
+edad:24,
+poderes:["corre rapido","viaja en el tiempo"]
+}
+----
+metodos dentro de objetos
+     (variable)  :    ( esto de abajo seria como el tipo de la variable)
+let flash:{nombre:string,edad:number,poderes:string[],getNombre:()=>string} = {
+
+nombre:"pepe",
+edad:24,
+poderes:["vuela","superfuerza","mirada laser"],
+
+getNombre(){
+return this.nombre;
+}
+
+
+}
+=============END OBJETOS===================
+
+tipos personalizados
+
+type Heroe ={
+
+nombre:string,
+edad:number,
+poderes:strig[],
+getNombre:()=>string
+
+};
+
+let flash:Heroe ={
+nombre:"pepe",
+edad:24,
+poderes:["vuela","superfuerza","mirada laser"],
+getNombre(){
+return this.nombre;
+}
+
+}
+
+multiples tipos permitidos
+
+type Heroe2 = {
+nombre:string,
+edad:number
+};
+
+let loQueSea:string | number  | Heroe2;
+
+loQueSea="juan";
+loQueSea=36;
+loQueSea={
+nombre:"roberto",
+edad:24
+};
+----
+revisar el tipo 
+let cosa:any = 123;
+if(typeof(cosa)==="number"){
+...}
+----
+clases
+
+class Avenger{
+nombre:string; // por defecto publico
+edad:number;// por defecto publico
+
+constructor(nombre:string,edad:nuber){
+this.nombre = nonmbre;
+this.edad =edad;
+}
+
+public mostrar ():string{
+ return `${this.nombre},{$this.edad}`;// ojo `
+}
+
+}
+let obj:Avenger = new Avenger("matias",24);
+----------
+herencia
+class Avenger{
+ constructor(public nombre:string,public edad:number){
+
+}
+
+}
+
+class Xmen extends Avenger{
+
+}
+let obj:Xmen = new Xmen("ciclope",20);
+//las clases heredadas si no tienen constructor definido
+explicitamente, toman el constructorde la clase de la cual
+heredan
+
+------------------
+class Avenger{
+public nombre:string;
+public edad:number;
+
+	constructor(nombre:string,edad:number){
+		this.nombre = nombre;
+		this.edad = edad
+        }
+}
+
+class Xmen extends Avenger{
+
+	constructor(a:string,b:number){
+	 super(a,b);
+        }
+
+}
+
+let obj:Xmen = new Xmen ("ciclope",20);
+-------------------
+
+GET Y SET
+
+class Avenger{
+
+ private _nombre:string;
+
+ constructor(nombre?:string){
+  this._nombre = nombre;
+ }
+
+ get nombre():string{
+
+ if(this_nombre){
+   return this._nombre;
+
+ }else{
+   return "no tiene ningun nombre";
+
+  }
+
+ }
+
+set nombre(nombre:string){
+
+	this._nombre = nombre;
+
+}
+
+}
+
+let obj:Avenger = new Avenger("jose");
+
+-----------------------
+
+METODOS Y PROP ESTATICOS
+class Xmenn{
+static nombre:string = "asd";
+
+constructor(){
+}
+static crearXmen(){
+	return new Xmenn(); 
+}
+
+}
+
+let obj:Xmenn = Xmenn.crearXmen();
+
+-------
+CLASES ABSTRACTAS
+
+
+
+----
+INTERFACES
+
+interface IUser{
+    name: string;
+    getName(): string;
+}
+
+class User implements IUser{
+    name: string;
+    constructor(name: string) {
+        this.name= name;
+    }
+    getName(): string{
+        return this.name;
+    }    
+}
+var user = new User("iparra");
+console.log(user);
+
+MULTIPLES INTERFACES
+class Clock implements ClockInterface, ClockInterfaceMethods
+

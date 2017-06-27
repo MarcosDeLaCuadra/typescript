@@ -1,0 +1,66 @@
+
+npm install -g typescript (instalar compilador)
+tsc -v (ver version)
+tsc archivo.ts (para compilar)
+tsc archivo.ts --watch 
+tsc --init(genera tscongif.json)
+////////////////////////////////////////////////////////////////////
+
+interface Itest{
+    clase: string;
+    //_edad?: number, podria poner uno opcional
+    Saludar(): void;
+}
+
+class Humano  {
+
+   private _nombre: string;
+   private _edad: number;
+   private _skills: any[];
+
+   constructor(nombre: string, edad?: number) { // edad opcional
+       this._nombre = nombre;
+       this._edad = edad;
+   }
+
+   get Nombre(): string{
+       return this._nombre;
+   }
+   get Edad(): number{
+       if (this._edad) {
+           return this._edad;
+       } else {
+           return 0;
+       }
+   }
+
+   set Nombre(nombre: string) {
+       this._nombre = nombre;
+   }
+
+   set Edad(edad: number) {
+       this._edad = edad;
+   }
+   public Saludar():void {
+       console.log(`me llamo {$this._nombre}`);
+   }
+
+
+}
+
+class Clerigo extends Humano implements Itest{
+
+    public clase: string;
+
+    constructor(nombre:string,edad:number,clase:string) {
+        super(nombre, edad);
+        this.clase = clase;
+    }
+
+    public Saludar(): void{
+        super.Saludar();
+        console.log(`mi clase es  {$this.clase}`);
+    }
+}
+
+let objEntidad = new Clerigo("lolo", 10, "clerigo");

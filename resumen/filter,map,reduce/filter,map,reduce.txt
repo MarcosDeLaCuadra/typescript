@@ -1,0 +1,136 @@
+﻿
+=====FILTER=====
+
+El método filter() crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada.
+callback Función que comprueba cada elemento del array para ver si cumple la condición Retorna true si el elemento la cumple, false en caso contrario. 
+
+filter llama a la función dada callback  para cada elemento del array ,
+ y construye un nuevo array con todos los valores para los cuales  callback retorna un valor verdadero.
+  callback es invocada solo para indices del array que tengan asignado un valor.
+   No es invocada para indices que hayan sido borrados o a los que no se les haya asignado valor alguno. 
+   los que no cumplen la condicion se descartan.
+   
+
+   ejemplos:
+
+arr.filter(callback)
+---------------
+
+function esSuficientementeGrande(elemento) {
+  return elemento >= 10;
+}
+var filtrados = [12, 5, 8, 130, 44].filter(esSuficientementeGrande);
+// filtrados es [12, 130, 44]
+-----------------
+
+var arr = [
+  { id: 15 },
+  { id: -1 },
+  { id: 0 },
+  { id: 3 },
+  { id: 12.2 },
+  { },
+  { id: null },
+  { id: NaN },
+  { id: 'undefined' }
+];
+
+var entradasInvalidas = 0;
+//Si el elemento tiene un atributo id, y su valor correspondiente es un numero
+//Y no es el valor NaN, entonces es una entrada válida
+function filtrarPorID(obj) {
+  if ('id' in obj && typeof(obj.id) === 'number' && !isNaN(obj.id)) {
+    return true;
+  } else {
+    entradasInvalidas++;
+    return false;
+  }
+}
+
+var arrPorID = arr.filter(filtrarPorID);
+
+console.log('Array Filtrado\n', arrPorID); 
+// [{ id: 15 }, { id: -1 }, { id: 0 }, { id: 3 }, { id: 12.2 }]
+
+console.log('Número de Entradas Invalidas = ', entradasInvalidas); 
+// 4
+
+---------------------------
+var nueros = [10,2,3,9,5,6,8];
+var numeros_pares = numeros.filter(function(numero){
+    return numero % 2 === 0;
+});
+
+console.log(numeros_pares);
+
+
+=====MAP====
+a diferencia de filter map va creando un array con el resultado del callback pero no importa que retorne el callback true false string entonces
+le aplica el callback a cada elemento del array y va armando otro array 
+
+var numbers = [1, 5, 10, 15];
+var doubles = numbers.map(function(x) {
+   return x * 2;
+});
+
+console.log(nuevoArray);
+
+====REDUCE======
+
+El método reduce() aplica una función a un acumulador y a cada valor de un array (de izquierda a derecha) para reducirlo a un único valor.
+
+[0,1,2,3,4].reduce(function(valorAnterior, valorActual, indice, vector){
+  return valorAnterior + valorActual;
+});
+
+// Primera llamada
+valorAnterior = 0, valorActual = 1, indice = 1
+
+// Segunda llamada
+valorAnterior = 1, valorActual = 2, indice = 2
+
+// Tercera llamada
+valorAnterior = 3, valorActual = 3, indice = 3
+
+// Cuarta llamada
+valorAnterior = 6, valorActual = 4, indice = 4
+
+// el array sobre el que se llama a reduce siempre es el objeto [0,1,2,3,4] 
+
+// Valor Devuelto: 10
+
+
+
+Y si proporcionas un valorInicial, el resultado sería como este:
+
+[0,1,2,3,4].reduce(function(valorAnterior, valorActual, indice, vector){
+  return valorAnterior + valorActual;
+}, 10);
+
+// Primera llamada
+valorAnterior = 10, valorActual = 0, indice = 0
+
+// Segunda llamada
+valorAnterior = 10, valorActual = 1, indice = 1
+
+// Tercera llamada
+valorAnterior = 11, valorActual = 2, indice = 2
+
+// Cuarta llamada
+valorAnterior = 13, valorActual = 3, indice = 3
+
+// Quinta llamada
+valorAnterior = 16, valorActual = 4, indice = 4
+
+// el array sobre el que se llama a reduce siempre es el objeto [0,1,2,3,4] 
+
+// Valor Devuelto: 20
+
+
+---------------
+
+var letras = ["H","O","L","A"];
+
+var palabra = letras.reduce(function(valor_anterior_retornado,valor_actual,index,arreglo){
+    return valor_anterior_retornado + valor_actual;
+});
